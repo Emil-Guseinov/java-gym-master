@@ -23,6 +23,7 @@ public class Timetable {
         }
         trainingSessions.add(trainingSession);
     }
+
     public TreeMap<TimeOfDay, List<TrainingSession>> getTrainingSessionsForDay(DayOfWeek dayOfWeek) {
         TreeMap<TimeOfDay, List<TrainingSession>> training = timetable.get(dayOfWeek);
         return Objects.nonNull(training) ? training : new TreeMap<>();
@@ -36,6 +37,7 @@ public class Timetable {
         List<TrainingSession> timeTrainings = dayTraining.get(timeOfDay);
         return Objects.nonNull(timeTrainings) ? timeTrainings : new ArrayList<>();
     }
+
     public List<TrainingSession> getAllSessions() {
         List<TrainingSession> all = new ArrayList<>();
         for (TreeMap<TimeOfDay,List<TrainingSession>> dayTrainings : timetable.values()) {
