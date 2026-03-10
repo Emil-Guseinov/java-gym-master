@@ -9,7 +9,7 @@ public class TimeOfDay implements Comparable<TimeOfDay> {
     //минуты (от 0 до 59)
     private int minutes;
 
-    public TimeOfDay (int hours, int minutes) {
+    public TimeOfDay(int hours, int minutes) {
         if (hours < 0 || hours > 23) {
             throw new IllegalArgumentException("Часы должны быть от 0 до 23");
         }
