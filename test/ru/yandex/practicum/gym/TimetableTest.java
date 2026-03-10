@@ -101,24 +101,33 @@ public class TimetableTest {
         TrainingSession trainingSession3 = new TrainingSession(group3, coach3, DayOfWeek.WEDNESDAY,
                 new TimeOfDay(20, 0));
 
+        Coach coach4 = new Coach("Чернов","Владислав","Иванович");
+        TrainingSession trainingSession4 = new TrainingSession(group1,coach4,DayOfWeek.MONDAY,
+                new TimeOfDay(8,0));
+
         timetable.addNewTrainingSession(trainingSession1);
         timetable.addNewTrainingSession(trainingSession2);
         timetable.addNewTrainingSession(trainingSession3);
+        timetable.addNewTrainingSession(trainingSession4);
 
         List<Map.Entry<Coach, Integer>> result = timetable.getCountByCoaches();
 
-        Assertions.assertEquals(3, result.size());
+        Assertions.assertEquals(4, result.size());
 
         Assertions.assertEquals(1, result.get(0).getValue());
         Assertions.assertEquals(1, result.get(1).getValue());
+        Assertions.assertEquals(1, result.get(2).getValue());
         Assertions.assertEquals(1, result.get(2).getValue());
 
         int totalSessions = 0;
         for (Map.Entry<Coach, Integer> entry : result) {
             totalSessions += entry.getValue();
         }
-        Assertions.assertEquals(3, totalSessions);
+        Assertions.assertEquals(4, totalSessions);
+
+        List<TrainingSession> sessionsAtMonday8 = timetable.getTrainingSessionsForDayAndTime(DayOfWeek.MONDAY,
+                new TimeOfDay(8,0));
+        Assertions.assertEquals(2,sessionsAtMonday8.size()); // Две сессии в один момент
+
     }
 }
-
-

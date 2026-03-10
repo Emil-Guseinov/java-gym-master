@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Timetable {
 
-    private Map<DayOfWeek, TreeMap<TimeOfDay, List<TrainingSession>>> timetable = new HashMap<>();
+    private final Map<DayOfWeek, TreeMap<TimeOfDay, List<TrainingSession>>> timetable = new HashMap<>();
 
     public void addNewTrainingSession(TrainingSession trainingSession) {
 
@@ -32,7 +32,7 @@ public class Timetable {
     public List<TrainingSession> getTrainingSessionsForDayAndTime(DayOfWeek dayOfWeek, TimeOfDay timeOfDay) {
         TreeMap<TimeOfDay,List<TrainingSession>> dayTraining = timetable.get(dayOfWeek);
         if (Objects.isNull(dayTraining)) {
-            return new ArrayList<>();
+            return Collections.emptyList();
         }
         List<TrainingSession> timeTrainings = dayTraining.get(timeOfDay);
         return Objects.nonNull(timeTrainings) ? timeTrainings : new ArrayList<>();
