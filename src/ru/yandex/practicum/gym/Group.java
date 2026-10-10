@@ -14,15 +14,15 @@ public class Group {
         this.duration = duration;
     }
 
-    public String getTitle() {
-        return title;
+    public int getDuration() {
+        return duration;
     }
 
     public Age getAge() {
         return age;
     }
 
-    public int getDuration() {
-        return duration;
+    public String getTitle() {
+        return title;
     }
 }

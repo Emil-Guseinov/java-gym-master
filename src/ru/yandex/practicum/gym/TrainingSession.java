@@ -7,7 +7,7 @@ public class TrainingSession {
     //тренер
     private Coach coach;
     //день недели
-    private DayOfWeek dayOfWeek;
+    private final DayOfWeek dayOfWeek;
     //время начала занятия
     private TimeOfDay timeOfDay;
 
